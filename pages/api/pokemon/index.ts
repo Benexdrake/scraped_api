@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import json from '@/public/Pokemon.json'
+import json from '@/public/scraped/Pokemon.json'
 
 
 export default function handler(

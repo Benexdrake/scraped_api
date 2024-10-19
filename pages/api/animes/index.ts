@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import json from '@/public/Animes.json'
+import json from '@/public/scraped/Animes.json'
 
 
 export default function handler(
@@ -8,7 +8,6 @@ export default function handler(
   res: NextApiResponse,
 ) {
   console.log(req.query)
-
 
   if(req.query.id != null)
   {
