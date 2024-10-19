@@ -1,11 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import fs from 'fs'
+import cfs_c02 from '@/public/exam/aws-cfs-c02.json'
+
 
 export default function handler(req: NextApiRequest, res: NextApiResponse)
 {
-  fs.readdir('public/exam', (err,files) => {
-    res.status(200).json(files);
-  })
-  
+  res.status(200).json(cfs_c02)
 }
