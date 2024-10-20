@@ -1,12 +1,14 @@
+import { shuffle } from './shuffle'
+
 import cfs_c02 from '@/public/exam/aws-cfs-c02.json'
 import saa_c03 from '@/public/exam/aws-saa-c03.json'
 import az_900 from '@/public/exam/az-900.json'
 
 
 export const exams = [
-    {'id': 'cfs-c02', 'questions':cfs_c02.questions},
-    {'id': 'saa-c03', 'questions':saa_c03.questions},
-    {'id': 'az-900', 'question':az_900.questions}
+    {'id': 'cfs-c02', 'questions':shuffle(cfs_c02.questions)},
+    {'id': 'saa-c03', 'questions':shuffle(saa_c03.questions)},
+    {'id': 'az-900', 'question':shuffle(az_900.questions)}
 ]
 
 
