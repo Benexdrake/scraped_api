@@ -4,9 +4,9 @@ import az_900 from '@/public/exam/az-900.json'
 
 
 export const exams = [
-    {'id': 'cfs-c02', 'exam':cfs_c02},
-    {'id': 'saa-c03', 'exam':saa_c03},
-    {'id': 'az-900', 'exam':az_900}
+    {'id': 'cfs-c02', 'questions':cfs_c02.questions},
+    {'id': 'saa-c03', 'questions':saa_c03.questions},
+    {'id': 'az-900', 'question':az_900.questions}
 ]
 
 
