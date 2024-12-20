@@ -6,6 +6,7 @@ import json from '@/public/scraped/Pokemon.json'
 export default function handler(req: NextApiRequest, res: NextApiResponse)
 {
   let nr = req.query.nr as unknown as number;
+  let name = req.query.name as unknown as string;
   let all = req.query.all as unknown as boolean;
 
   let pokes = json.filter(x => x.nr == nr)
@@ -13,6 +14,16 @@ export default function handler(req: NextApiRequest, res: NextApiResponse)
   {
     res.status(200).json(pokes);
     return;
+  }
+
+  if(name !== null)
+  {
+    let pokes = json.filter(x => x.name.toLowerCase().includes(x.name.toLowerCase()))
+    if(pokes.length > 0)
+    {
+      res.status(200).json(pokes)
+      return;
+    }
   }
   
   if(all)
