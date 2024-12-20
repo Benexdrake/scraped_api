@@ -29,5 +29,11 @@ export default function handler(
     return
   }
 
-  res.status(200).json(json);
+  if(req.query.all)
+  {
+    res.status(200).json(json.sort(() => .5 - Math.random()));
+    return
+  }
+
+  res.status(200).json(json.sort(() => .5 - Math.random()).slice(0,50));
 }
