@@ -19,6 +19,9 @@ export default function Home() {
             <li>
               <p>?all=true <strong>Anzeigen aller Animes</strong></p>
             </li>
+            <li>
+              <p>?info=true <strong>Zeigt alle Publisher und Tags/Count an</strong></p>
+            </li>
           </ul>
         </li>
         <li>
