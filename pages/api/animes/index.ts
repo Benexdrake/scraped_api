@@ -2,7 +2,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import json from '@/public/scraped/Animes.json'
 
-
 export default function handler(req: NextApiRequest, res: NextApiResponse)
 {
   if(req.query.info)
@@ -54,8 +53,33 @@ export default function handler(req: NextApiRequest, res: NextApiResponse)
   {
     let title = `${req.query.title}`.toLowerCase()
     let animes = json.filter(x => x.title.toLowerCase().includes(title))
-    res.status(200).json(animes);
+    res.status(200).json(animes.slice(0,27));
     return
+  }
+
+  // genre
+  if(req.query.genre != null)
+  {
+    let genre = `${req.query.genre}`;
+    let animes = json.filter(x => x.tags.includes(genre))
+    res.status(200).json(animes.slice(0,27))
+  }
+
+  // rating
+  if(req.query.rating != null)
+  {
+    let rating = parseFloat(`${req.query.rating}`);
+    console.log(rating)
+    let animes = json.filter(x => x.rating >= rating);
+    res.status(200).json(animes.slice(0,27))
+  }
+
+  // publisher
+  if(req.query.publisher != null)
+  {
+    let publisher = `${req.query.publisher}`;
+    let animes = json.filter(x => x.publisher.includes(publisher))
+    res.status(200).json(animes.slice(0,27))
   }
 
   if(req.query.all)
@@ -64,5 +88,5 @@ export default function handler(req: NextApiRequest, res: NextApiResponse)
     return
   }
 
-  res.status(200).json(json.sort(() => .5 - Math.random()).slice(0,50));
+  res.status(200).json(json.sort(() => .5 - Math.random()).slice(0,27));
 }
